@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/lightGrey"
+    tools:context=".SignUpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileimage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/whatsappiconn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edusername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:padding="9dp"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="textPersonName"
+            android:background="@color/white"
+            android:hint="User Name" />
+
+        <EditText
+            android:id="@+id/edemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:background="@color/white"
+            android:padding="9dp"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
+
+        <EditText
+            android:id="@+id/edpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:background="@color/white"
+            android:padding="9dp"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:inputType="textPassword"
+            android:hint="Password" />
+        <EditText
+            android:id="@+id/edphoneno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:background="@color/white"
+            android:padding="9dp"
+            android:maxLength="10"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:inputType="number"
+            android:hint="Phone Number" />
+
+
+
+        <Button
+            android:id="@+id/buttonsignup"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="15dp"
+            android:text="SignUp"
+            app:backgroundTint="#25D366"
+            app:cornerRadius="4dp" />
+
+
+
+        <TextView
+            android:id="@+id/click"
+            android:padding="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Already Have account"
+            android:textColor="@color/black"
+            android:textSize="14dp">
+
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

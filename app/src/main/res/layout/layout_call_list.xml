@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Fragments.StatusFragments">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="010dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/callimage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/rohit"
+                />
+<!--            <ImageButton-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:layout_alignBottom="@id/callimage"-->
+<!--                android:layout_alignRight="@id/callimage"-->
+<!--                android:src="@drawable/ic_baseline_add_24"-->
+<!--                ></ImageButton>-->
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/callname"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:textColor="@color/grayBackground"
+                    android:text="My Status"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/date"
+                    android:src="@drawable/call"
+                    app:tint="@color/colorPrimary"></ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/image_arr"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_baseline_arrow_downward_24"
+                    android:scaleType="center"
+                    app:tint="@color/red"
+                    android:layout_marginRight="15dp"/>
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:padding="5dp"
+                    android:text="23/04/2021,11:00,Am"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

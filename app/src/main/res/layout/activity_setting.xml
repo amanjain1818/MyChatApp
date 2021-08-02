@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".SettingActivity">
+    <ImageView
+        android:id="@+id/backkk"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/arrowback"
+
+        />
+
+
+    <LinearLayout
+        android:id="@+id/prppp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/backkk">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileimage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimary"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/plus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="-30dp"
+            android:src="@drawable/cam"
+            />
+
+        <LinearLayout
+            android:layout_below="@id/plus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:text="username" />
+
+            <EditText
+                android:id="@+id/eduusername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:padding="4dp"
+                android:background="#0000ffff"
+                android:textColor="@color/white"
+                android:inputType="textPersonName"
+                android:hint="Enter your username"
+                android:textColorHint="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@id/eduusername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:padding="5dp"
+
+                android:textStyle="bold"
+                android:text="Status"/>
+
+            <EditText
+                android:id="@+id/eduabout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:padding="4dp"
+                android:hint="status"
+                android:background="#0000ffff"
+                android:textColor="@color/white"
+                android:inputType="textPersonName"
+
+                android:textColorHint="@color/white"/>
+        </LinearLayout>
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/save"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:padding="5dp"
+    android:text="Save"
+    android:textColor="@color/colorPrimary"
+    android:layout_gravity="right">
+
+</androidx.appcompat.widget.AppCompatButton>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/linearbg"
+        android:padding="40dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:drawablePadding="15dp"
+            android:padding="10dp"
+            android:text="Account"
+            android:drawableLeft="@drawable/mess"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:drawablePadding="15dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/mess"
+            android:text="Chats"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+          />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:drawablePadding="15dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/mess"
+            android:text="Notification"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+           />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:drawablePadding="15dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/mess"
+            android:text="Data and storage usage"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:drawablePadding="15dp"
+            android:padding="10dp"
+            android:drawableLeft="@drawable/mess"
+            android:text="invte a friend"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+             />
+    </LinearLayout>
+
+</RelativeLayout>

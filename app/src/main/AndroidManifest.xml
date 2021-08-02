@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mychatapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/whatsappiconn"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/whatsappiconn"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyChatApp">
+        <activity android:name=".ReviewImageSendActivity"></activity>
+        <activity android:name=".Contacts.ContactsActivity"></activity>
+        <activity android:name=".FacebookActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".GroupChatActivity" />
+        <activity android:name=".ChatDetailActivity" />
+        <activity android:name=".SignIn">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".MainActivity" />
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/whatsappiconn" />
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+    </application>
+
+</manifest>
