@@ -32,7 +32,6 @@ public class SignUpActivity extends AppCompatActivity {
     ProgressDialog progress;
     SharedPreferences preferences;
     public  String value="create";
-    String MobilePattern = "[0-9]{10}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
