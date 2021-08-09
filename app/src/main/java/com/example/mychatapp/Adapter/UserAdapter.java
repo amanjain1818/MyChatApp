@@ -2,6 +2,7 @@ package com.example.mychatapp.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ public class UserAdapter  extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
       ArrayList<User> list;
       Context context;
 
+
+
     public UserAdapter(ArrayList<User> list, Context context) {
         this.list = list;
         this.context = context;
@@ -49,8 +52,12 @@ public class UserAdapter  extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         Picasso.get().load(user.getProfilepic()).placeholder(R.drawable.useruser).into(holder.image);
         holder.username.setText(user.getUsername());
 
+
+
         // show last message in user list
         // orderbychild = desendingorder message show in firbase datsabase (last message top)
+
+
 
         FirebaseDatabase.getInstance().getReference().child("chats").child(FirebaseAuth.getInstance().getUid() + user.getUserid()).orderByChild("timetamp").limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -89,13 +96,14 @@ public class UserAdapter  extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView username;
-        TextView lastmessage;
+        TextView lastmessage,state;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             image=itemView.findViewById(R.id.profileimage);
             username=itemView.findViewById(R.id.usernamelist);
             lastmessage=itemView.findViewById(R.id.lastmessage);
+           // state=itemView.findViewById(R.id.state);
 
         }
     }

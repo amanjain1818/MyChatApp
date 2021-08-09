@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -20,23 +19,17 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mychatapp.Adapter.ChatAdapter;
-import com.example.mychatapp.Fragments.APIService;
+import com.example.mychatapp.Contacts.ContactsActivity;
 import com.example.mychatapp.Model.MessageModel;
 import com.example.mychatapp.Model.User;
 import com.example.mychatapp.databinding.ActivityChatDetailBinding;
-import com.example.mychatapp.Notifications.Client;
-import com.example.mychatapp.Notifications.Data;
-import com.example.mychatapp.Notifications.Response;
-import com.example.mychatapp.Notifications.Sender;
-import com.example.mychatapp.Notifications.Token;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -44,13 +37,12 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.Callback;
 
 public class ChatDetailActivity extends AppCompatActivity {
     ActivityChatDetailBinding binding;
@@ -59,6 +51,7 @@ public class ChatDetailActivity extends AppCompatActivity {
     private boolean isAction = false;
     private int IMAGE_GALLARY_REQUEST = 111;
     private Uri imageuri;
+    private String cureentUserid;
     SharedPreferences preferences;
     private String myname,myimage,myid;
 
@@ -67,6 +60,9 @@ public class ChatDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityChatDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+
 
 //        preferences = getSharedPreferences("chatApp", MODE_PRIVATE);
 //
@@ -114,6 +110,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         Log.d("tag","reciveruserpic"+ userProfilePic);
 
         binding.usernamechat.setText(userName);
+
         Picasso.get().load(userProfilePic).placeholder(R.drawable.useruser).into(binding.profileimage);
 
         binding.gallary.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +120,14 @@ public class ChatDetailActivity extends AppCompatActivity {
 
             }
         });
+        binding.location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(ChatDetailActivity.this,CurrentLocationMaps.class);
+              startActivity(intent);
+            }
+        });
+
 
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,6 +190,14 @@ public class ChatDetailActivity extends AppCompatActivity {
             }
         });
 
+
+binding.contactss.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent intent= new Intent(ChatDetailActivity.this, ContactsActivity.class);
+        startActivity(intent);
+    }
+});
 
         binding.send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -316,4 +329,6 @@ public class ChatDetailActivity extends AppCompatActivity {
             //         uploadToFirbase();
         }
     }
+
+
 }

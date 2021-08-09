@@ -38,6 +38,7 @@
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
             android:text="Last message" />
+
     </LinearLayout>
 
 

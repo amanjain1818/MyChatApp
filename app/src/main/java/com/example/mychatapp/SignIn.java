@@ -40,7 +40,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,6 +55,8 @@ public class SignIn extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     SharedPreferences preferences;
     CallbackManager mCallbackManager;
+    private String cureentUserid;
+     public  String value ;
 
 
     @Override
@@ -61,9 +65,13 @@ public class SignIn extends AppCompatActivity {
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+
         auth = FirebaseAuth.getInstance();
         mCallbackManager = CallbackManager.Factory.create();
         firebaseDatabase = FirebaseDatabase.getInstance();
+
+        value= getIntent().getStringExtra("data");
+        Log.d("ab","value"+value);
 
         dialog = new ProgressDialog(SignIn.this);
         dialog.setTitle("Login");
@@ -109,10 +117,15 @@ public class SignIn extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                         dialog.dismiss();
-                        if (task.isSuccessful()) {
+                        if (task.isSuccessful() ) {
+
+
+
+
+
                             SharedPreferences preferences = getSharedPreferences("chatApp", MODE_PRIVATE);
-                            String username=preferences.getString("userName","");
-                          //  preferences.getString("userName","")
+                            String username = preferences.getString("userName", "");
+                            //  preferences.getString("userName","")
                             //Log.d("tag", "debug" + auth.getCurrentUser().getDisplayName());
                             //editor.putString("username", auth.getCurrentUser().getDisplayName()).apply();
                             String token = preferences.getString("fcmtoken", "");
@@ -121,10 +134,9 @@ public class SignIn extends AppCompatActivity {
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User").child(auth.getUid());
                             Map<String, Object> map = new HashMap<>();
                             map.put("token", token);
-                            map.put("userName",username);
+                            map.put("userName", username);
                             databaseReference.updateChildren(map);
-
-
+                           // updateUserStatus("online");
                             Intent intent = new Intent(SignIn.this, MainActivity.class);
                             startActivity(intent);
                         } else {
@@ -136,6 +148,20 @@ public class SignIn extends AppCompatActivity {
 
             }
         });
+// String value="create"
+
+
+ if(auth.getCurrentUser() != null && value == null ) {
+     Log.d("tag","value"+value);
+    // Toast.makeText(this, "Signup", Toast.LENGTH_SHORT).show();
+
+    // Log.d("tag","value"+value)
+
+     Intent intent=new Intent(SignIn.this,MainActivity.class);
+     startActivity(intent);
+
+ }
+
 
         binding.clicksignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,11 +179,26 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
-//        if (auth.getCurrentUser() != null) {
-//            Intent intent = new Intent(SignIn.this, MainActivity.class);
-//            startActivity(intent);
-//        }
+
+
     }
+
+
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        if (auth.getCurrentUser() != null) {
+//            updateUserStatus("offline stop");
+//        }
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        if (auth.getCurrentUser() != null)
+//            updateUserStatus("online destory");
+//    }
 
     int RC_SIGN_IN = 65;
 
@@ -183,6 +224,26 @@ public class SignIn extends AppCompatActivity {
                 Log.w("TAG", "Google sign in failed", e);
             }
         }
+    }
+
+    private void updateUserStatus(String state) {
+        String savecureenttime, savecureentdate;
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat currentDate = new SimpleDateFormat("mm dd,yyyy");
+        savecureentdate = currentDate.format(calendar.getTime());
+
+        SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm,a");
+        savecureenttime = currentTime.format(calendar.getTime());
+        HashMap<String, Object> onlineState = new HashMap<>();
+        onlineState.put("time", savecureenttime);
+        onlineState.put("date", savecureentdate);
+        onlineState.put("state", state);
+
+        cureentUserid = auth.getCurrentUser().getUid();
+        firebaseDatabase.getReference().child("User").child(cureentUserid).child("userState")
+                .updateChildren(onlineState);
+
+
     }
 
     private void firebaseAuthWithGoogle(String idToken) {

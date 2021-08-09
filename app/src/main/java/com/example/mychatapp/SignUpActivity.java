@@ -31,6 +31,8 @@ public class SignUpActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     ProgressDialog progress;
     SharedPreferences preferences;
+    public  String value="create";
+    String MobilePattern = "[0-9]{10}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,24 @@ public class SignUpActivity extends AppCompatActivity {
         binding.buttonsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (binding.edusername.getText().toString().isEmpty()) {
+                    binding.edusername.setError("Enter Your Username");
+                    return;
+                }
+                if (binding.edpassword.getText().toString().isEmpty()) {
+                    binding.edpassword.setError("Enter Your Password");
+                    return;
+                }
+                if (binding.edemail.getText().toString().isEmpty()) {
+                    binding.edemail.setError("Enter Your Email");
+                    return;
+                }
+
+
+
                 progress.show();
+
+
 
 
 
@@ -66,14 +85,7 @@ public class SignUpActivity extends AppCompatActivity {
                         Log.d("tag","signup"+user.getPhonenumber());
                         Log.d("tag","signup"+user.getUsername());
                            String id=task.getResult().getUser().getUid();
-                                    if (binding.edemail.getText().toString().isEmpty()) {
-                                        binding.edemail.setError("Enter Your Email");
-                                        return;
-                                    }
-                                    if (binding.edpassword.getText().toString().isEmpty()) {
-                                        binding.edpassword.setError("Enter Your Password");
-                                        return;
-                                    }
+
 //                                    if (binding.edphoneno.getText().toString().matches("^\\d{10}$"))
 //                                    {
 //                                        binding.edphoneno.setError("Enter Your Correct Mobile Number");
@@ -82,7 +94,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-                           // user detail stoe in database
+                           // user detail store in database
 
                            firebaseDatabase.getReference().child("User").child(id).setValue(user);
 
@@ -99,8 +111,9 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                          Toast.makeText(SignUpActivity.this,"User create sucessfully",Toast.LENGTH_SHORT).show();
-
+                                    value=" create user ";
                                     Intent intent4 = new Intent(SignUpActivity.this,SignIn.class);
+                                    intent4.putExtra("data",value);
                                     startActivity(intent4);
                         } else{
                            Toast.makeText(SignUpActivity.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();

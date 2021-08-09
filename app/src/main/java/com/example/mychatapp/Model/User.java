@@ -4,8 +4,17 @@ public class User {
     public User() {
     }
 
-   private String mail, password, profilepic, username,  lastmessage, userid, status;
+   private String mail, password, profilepic, username,  lastmessage, userid, status,state;
     private String phonenumber;
+
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public String getPhonenumber() {
         return phonenumber;
@@ -71,7 +80,7 @@ public class User {
         this.password = password;
     }
 
-    public User(String mail, String password, String profilepic, String username, String lastmessage, String userid, String status, String phonenumber) {
+    public User(String mail, String password, String profilepic, String username, String lastmessage, String userid, String status, String state, String phonenumber) {
         this.mail = mail;
         this.password = password;
         this.profilepic = profilepic;
@@ -79,6 +88,7 @@ public class User {
         this.lastmessage = lastmessage;
         this.userid = userid;
         this.status = status;
+        this.state = state;
         this.phonenumber = phonenumber;
     }
 

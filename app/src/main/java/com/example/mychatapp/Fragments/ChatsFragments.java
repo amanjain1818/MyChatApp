@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import com.example.mychatapp.Adapter.UserAdapter;
 import com.example.mychatapp.Model.User;
 import com.example.mychatapp.databinding.FragmentChatsFragmentsBinding;
-import com.example.mychatapp.Notifications.Token;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +24,10 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 
 
 public class ChatsFragments extends Fragment {
@@ -39,6 +41,7 @@ public class ChatsFragments extends Fragment {
     ArrayList<User> list = new ArrayList<>();
     FirebaseDatabase firebaseDatabase;
      FirebaseAuth firebaseAuth;
+  private String  cureentUserid;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

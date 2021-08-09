@@ -224,7 +224,7 @@
 
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/camera"
+                        android:id="@+id/contactss"
                         android:layout_width="0dp"
                         android:orientation="vertical"
                         android:layout_weight="1"

@@ -3,6 +3,7 @@ package com.example.mychatapp.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,8 +70,14 @@ else{
  MessageModel messageModel2=messageModels.get(position);
  if(holder.getClass() == SendViewHolder.class){
      ((SendViewHolder)holder).sendtext.setText(messageModel2.getMessage());
+     String time = DateUtils.formatDateTime(context, messageModel2.getTimetamp(), DateUtils.FORMAT_SHOW_TIME);
+     ((SendViewHolder)holder).sendtime.setText(time);
+
+
  }else{
      ((ReciverViewVolder)holder).receivertext.setText(messageModel2.getMessage());
+     String time = DateUtils.formatDateTime(context, messageModel2.getTimetamp(), DateUtils.FORMAT_SHOW_TIME);
+     ((ReciverViewVolder)holder).recivertime.setText(time);
  }
  holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
      @Override

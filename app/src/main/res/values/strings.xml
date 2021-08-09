@@ -5,4 +5,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">1141684476329944</string>
     <string name="fb_login_protocol_scheme">fb1141684476329944</string>
+
+    <string name="map_key" translatable="false">
+        AIzaSyAmr8fR2eSp0p8CXMgpy_zB-qwv5SNodr4
+        </string>
 </resources>
