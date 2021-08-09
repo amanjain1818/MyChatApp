@@ -136,7 +136,8 @@ public class SignIn extends AppCompatActivity {
                             map.put("token", token);
                             map.put("userName", username);
                             databaseReference.updateChildren(map);
-                           // updateUserStatus("online");
+
+                            // updateUserStatus("online");
                             Intent intent = new Intent(SignIn.this, MainActivity.class);
                             startActivity(intent);
                         } else {
@@ -151,7 +152,7 @@ public class SignIn extends AppCompatActivity {
 // String value="create"
 
 
- if(auth.getCurrentUser() != null && value == null ) {
+ if(auth.getCurrentUser() != null && value ==null ) {
      Log.d("tag","value"+value);
     // Toast.makeText(this, "Signup", Toast.LENGTH_SHORT).show();
 
